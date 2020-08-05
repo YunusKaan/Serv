@@ -1,0 +1,12 @@
+// JAİL \\
+client.on("guildMemberAdd", async member => {
+  let cezalan = db.get(`ceza.${member.guild.id}`);
+  if (cezalan.some(cezali => member.id === cezali.slice(1))) {
+    setTimeout(() => {
+      member.setRoles(["CEZALI ROL ID"]);
+    }, 2000);
+    member.guild.channels.get('LOG KANAL ID').send(`${member} üyesi sunucuya girdi ve cezalıya atıldı!`);
+    return
+  };
+});
+// JAİL \\

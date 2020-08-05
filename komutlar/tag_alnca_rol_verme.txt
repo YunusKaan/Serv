@@ -1,0 +1,12 @@
+client.on("userUpdate", async(eski, yeni) => {
+  if(eski.username !== yeni.username) {
+  if(!yeni.username.includes("TAG") && client.guilds.get("Sunucu İd").members.get(yeni.id).roles.has("ROL İD")) {
+     client.guilds.get("SUNUCU ID").members.get(yeni.id).removeRole("ROL İD")
+     client.channels.get('KANAL ID').send(`:broken_heart: ${yeni}, TAG tagını çıkardı!`)
+    }
+     if(yeni.username.includes("TAG") && !client.guilds.get("SUNUCU ID").members.get(yeni.id).roles.has("ROL İD")) {
+      client.channels.get('KANAL ID').send(`:heart: ${yeni}, TAG tagını aldı!`)
+      client.guilds.get("SUNUCU ID").members.get(yeni.id).addRole("ROL ID")
+     }
+  }
+  })
